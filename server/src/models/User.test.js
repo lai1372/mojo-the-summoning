@@ -5,7 +5,7 @@ const {
   beforeAll,
   afterAll,
 } = require("@jest/globals");
-const { User } = require(".");
+const { User, Deck } = require(".");
 const { db } = require("../db/config");
 
 // define in global scope
@@ -16,6 +16,8 @@ beforeAll(async () => {
   await db.sync({ force: true });
   user = await User.create({ username: "gandalf" });
 });
+
+
 
 // clear db after tests
 afterAll(async () => await db.sync({ force: true }));
@@ -34,3 +36,5 @@ describe("Test values are correct", () => {
     expect(user.username).toBe("gandalf");
   });
 });
+
+
