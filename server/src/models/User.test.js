@@ -15,12 +15,13 @@ beforeAll(async () => {
 afterAll(async () => await db.sync({ force: true }));
 
 describe("User", () => {
-  it("has an id", async () => {
+  test("should have id", async () => {
     expect(user).toHaveProperty("id");
   });
-
-  /**
-   * Create more tests
-   * E.g. check that the username of the created user is actually gandalf
-   */
+  test("should have username", async () => {
+    expect(user).toHaveProperty("username");
+  });
+  test("should store correct username", () => {
+    expect(user.username).toBe("gandalf");
+  });
 });
