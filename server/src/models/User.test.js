@@ -1,4 +1,10 @@
-const { describe, test, expect, beforeAll, afterAll } = require("@jest/globals");
+const {
+  describe,
+  test,
+  expect,
+  beforeAll,
+  afterAll,
+} = require("@jest/globals");
 const { User } = require(".");
 const { db } = require("../db/config");
 
@@ -21,6 +27,9 @@ describe("User", () => {
   test("should have username", async () => {
     expect(user).toHaveProperty("username");
   });
+});
+
+describe("Test values are correct", () => {
   test("should store correct username", () => {
     expect(user.username).toBe("gandalf");
   });
