@@ -48,13 +48,13 @@ describe("Card data types and values", () => {
   test("should store correct name", () => {
     expect(card.name).toBe("Shadowblade Assassin");
   });
-  test("should store correct name", () => {
+  test("should store correct mojo", () => {
     expect(card.mojo).toBe(5);
   });
-  test("should store correct name", () => {
+  test("should store correct stamina", () => {
     expect(card.stamina).toBe(3);
   });
-  test("should store correct name", () => {
+  test("should store correct img url", () => {
     expect(card.imgUrl).toBe(
       "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*5-SS5I5ksb70Bk814BKDwQ.jpeg"
     );

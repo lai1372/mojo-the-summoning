@@ -30,7 +30,7 @@ describe("Deck properties exist", () => {
   test("should have name", async () => {
     expect(deck).toHaveProperty("name");
   });
-  test("should have mojo", async () => {
+  test("should have xp", async () => {
     expect(deck).toHaveProperty("xp");
   });
 });
@@ -39,7 +39,7 @@ describe("Deck data types and values", () => {
   test("should store correct name", () => {
     expect(deck.name).toBe("Mystic Beasts of Eldoria");
   });
-  test("should store correct name", () => {
+  test("should store correct xp", () => {
     expect(deck.xp).toBe(1000);
   });
 });
