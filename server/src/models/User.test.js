@@ -1,4 +1,4 @@
-const { describe, it, expect, beforeAll, afterAll } = require("@jest/globals");
+const { describe, test, expect, beforeAll, afterAll } = require("@jest/globals");
 const { User } = require(".");
 const { db } = require("../db/config");
 

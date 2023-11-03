@@ -5,8 +5,9 @@ class Attack extends Model {}
 
 Attack.init(
   {
-    name: DataTypes.STRING,
-    xp: DataTypes.INTEGER,
+    title: DataTypes.STRING,
+    mojoCost: DataTypes.INTEGER,
+    staminaCost: DataTypes.INTEGER,
   },
   {
     sequelize: db,
