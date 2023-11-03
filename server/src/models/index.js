@@ -1,7 +1,7 @@
-const { User } = require("./User");
-const { Deck } = require("./Deck");
-const { Attack } = require("./Attack");
-const { Card } = require("./Card");
+const User = require("./User");
+const Deck = require("./Deck");
+const Attack = require("./Attack");
+const Card = require("./Card");
 
 // import the rest of your models above
 

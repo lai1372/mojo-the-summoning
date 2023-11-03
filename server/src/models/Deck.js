@@ -14,4 +14,4 @@ Deck.init(
   }
 );
 
-module.exports(Deck);
+module.exports = Deck;

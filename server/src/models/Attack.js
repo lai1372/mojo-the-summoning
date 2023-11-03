@@ -14,4 +14,4 @@ Attack.init(
   }
 );
 
-module.exports(Attack);
+module.exports = Attack;
