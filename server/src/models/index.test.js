@@ -121,3 +121,66 @@ describe("deck/card association", () => {
     expect(allDecks.name).toBe("Celestial Guardians");
   });
 });
+
+describe("card/attack association", () => {
+  test("card should have many attacks ", async () => {
+    const card = await Card.create({
+      name: "Fire Elemental",
+      mojo: 5,
+      stamina: 3,
+      imgUrl:
+        "https://cdn.dribbble.com/users/6012291/screenshots/14165392/media/90513884b71a325901ecde929477e9e7.jpg",
+    });
+
+    const attack = await Attack.create({
+      title: "Entangling Vines",
+      mojoCost: 2,
+      staminaCost: 4,
+    });
+
+    const attack2 = await Attack.create({
+      title: "Lightning Bolt",
+      mojoCost: 10,
+      staminaCost: 6,
+    });
+    const addAttacks = await card.addAttacks([attack, attack2]);
+    const cardsWithAttacks = await card.getAttacks();
+    expect(cardsWithAttacks.length).toBe(2);
+    expect(cardsWithAttacks[0].title).toBe("Entangling Vines");
+    expect(cardsWithAttacks[1].title).toBe("Lightning Bolt");
+  });
+
+  test("attacks should have many cards ", async () => {
+    const card = await Card.create({
+      name: "Fire Elemental",
+      mojo: 5,
+      stamina: 3,
+      imgUrl:
+        "https://cdn.dribbble.com/users/6012291/screenshots/14165392/media/90513884b71a325901ecde929477e9e7.jpg",
+    });
+    const card2 = await Card.create({
+      name: "Nature's Guardian",
+      mojo: 4,
+      stamina: 8,
+      imgUrl:
+        "https://images.nightcafe.studio/jobs/ULJ3jQ9w65nmbwzjqiUT/ULJ3jQ9w65nmbwzjqiUT--1--bmgsp.jpg?tr=w-1600,c-at_max",
+    });
+
+    const attack = await Attack.create({
+      title: "Entangling Vines",
+      mojoCost: 2,
+      staminaCost: 4,
+    });
+
+    const addCards = await attack.addCards([card, card2]);
+    const attacksWithCards = await attack.getCards();
+    expect(attacksWithCards.length).toBe(2);
+    expect(attacksWithCards[0].name).toBe("Fire Elemental");
+    expect(attacksWithCards[0].mojo).toBe(5);
+    expect(attacksWithCards[0].stamina).toBe(3);
+
+    expect(attacksWithCards[1].name).toBe("Nature's Guardian");
+    expect(attacksWithCards[1].mojo).toBe(4);
+    expect(attacksWithCards[1].stamina).toBe(8);
+  });
+});
